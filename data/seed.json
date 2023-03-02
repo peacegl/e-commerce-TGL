@@ -6,14 +6,6 @@
     {
       "email": "admin@medusa-test.com",
       "password": "supersecret"
-    },
-    {
-      "email": "some@email.com",
-      "password": "6iDND3nLSkBZuFS"
-    },
-    {
-      "email": "habibullahturkmen204@gmail.com",
-      "password": "some-password"
     }
   ],
   "regions": [
