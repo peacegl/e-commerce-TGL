@@ -52,27 +52,27 @@ const plugins = [
   //     webhook_secret: STRIPE_WEBHOOK_SECRET,
   //   },
   // },
-	// {
-	// 	resolve: "medusa-plugin-filestorage-local",
-	// 	options: {
-	// 		// The baseurl for your medusajs server
-	// 		serverBaseUrl: process.env.MEDUSA_BACKEND_URL || "http://localhost:9000",
-	// 		// when enabled saves the file as a base64 encoded string inside the database (deleting that row is not yet supported)
-	// 		saveInDatabase: false, // recommended: false
-	// 		// the folder where your files are stored on the server
-	// 		fileLocation: "uploads/persistent/",
-	// 	}
-	// },
 	{
-		resolve: `medusa-file-spaces`,
+		resolve: "medusa-plugin-filestorage-local",
 		options: {
-			spaces_url: process.env.SPACE_URL,
-			bucket: process.env.SPACE_BUCKET,
-			endpoint: process.env.SPACE_ENDPOINT,
-			access_key_id: process.env.SPACE_ACCESS_KEY_ID,
-			secret_access_key: process.env.SPACE_SECRET_ACCESS_KEY,
-		},
+			// The baseurl for your medusajs server
+			serverBaseUrl: process.env.MEDUSA_BACKEND_URL || "http://localhost:9000",
+			// when enabled saves the file as a base64 encoded string inside the database (deleting that row is not yet supported)
+			saveInDatabase: false, // recommended: false
+			// the folder where your files are stored on the server
+			fileLocation: "uploads/persistent/",
+		}
 	},
+	// {
+	// 	resolve: `medusa-file-spaces`,
+	// 	options: {
+	// 		spaces_url: process.env.SPACE_URL,
+	// 		bucket: process.env.SPACE_BUCKET,
+	// 		endpoint: process.env.SPACE_ENDPOINT,
+	// 		access_key_id: process.env.SPACE_ACCESS_KEY_ID,
+	// 		secret_access_key: process.env.SPACE_SECRET_ACCESS_KEY,
+	// 	},
+	// },
 ];
 
 const DB_USERNAME = process.env.DB_USERNAME
