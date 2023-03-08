@@ -5,7 +5,7 @@ module.exports = withStoreConfig({
   features: store.features,
   reactStrictMode: true,
   images: {
-    // unoptimized: true,
+    unoptimized: true,
     domains: [
       "tglsupplies.com",
       "pgl.sfo3.digitaloceanspaces.com",
