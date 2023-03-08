@@ -4,6 +4,7 @@ const store = require("./store.config.json")
 module.exports = withStoreConfig({
   features: store.features,
   reactStrictMode: true,
+  trailingSlash: true,
   images: {
     unoptimized: true,
     domains: [
