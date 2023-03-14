@@ -6,6 +6,8 @@ import clsx from "clsx"
 import Link from "next/link"
 import React, { useMemo } from "react"
 import { Product } from "types/medusa"
+import ReactMarkdown from "react-markdown"
+import { useRouter } from "next/router"
 
 type ProductActionsProps = {
   product: Product
@@ -23,6 +25,14 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
     return variantPrice || cheapestPrice || null
   }, [price])
 
+  const { asPath } = useRouter()
+  const origin =
+    typeof window !== "undefined" && window.location.origin
+      ? window.location.origin
+      : ""
+
+  const productURL = `${origin}${asPath}`
+
   return (
     <div className="flex flex-col gap-y-2">
       {product.collection && (
@@ -34,7 +44,11 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
       )}
       <h3 className="text-xl-regular">{product.title}</h3>
 
-      <p className="text-base-regular">{product.description}</p>
+      <p className="text-base-regular">
+        <ReactMarkdown>
+          {product.description ? product.description : ""}
+        </ReactMarkdown>
+      </p>
 
       {product.variants.length > 1 && (
         <div className="my-8 flex flex-col gap-y-6">
@@ -82,9 +96,18 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
         )}
       </div>
 
-      <Button onClick={addToCart}>
+      {/* <Button onClick={addToCart}>
         {!inStock ? "Out of stock" : "Add to cart"}
-      </Button>
+      </Button> */}
+
+      <a
+        href={`https://wa.me/13468161878?text=${productURL}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Button>Whatsapp</Button>
+      </a>
+
     </div>
   )
 }
